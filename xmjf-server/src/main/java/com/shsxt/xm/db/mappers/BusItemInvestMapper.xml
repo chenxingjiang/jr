@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shsxt.xm.db.dao.BusItemInvestDao">
+  <resultMap id="BaseResultMap" type="com.shsxt.xm.po.BusItemInvest">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="item_id" jdbcType="INTEGER" property="itemId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="invest_type" jdbcType="INTEGER" property="investType" />
+    <result column="invest_current" jdbcType="INTEGER" property="investCurrent" />
+    <result column="invest_order" jdbcType="VARCHAR" property="investOrder" />
+    <result column="invest_status" jdbcType="INTEGER" property="investStatus" />
+    <result column="invest_amount" jdbcType="DECIMAL" property="investAmount" />
+    <result column="invest_deal_amount" jdbcType="DECIMAL" property="investDealAmount" />
+    <result column="collect_amount" jdbcType="DECIMAL" property="collectAmount" />
+    <result column="collect_principal" jdbcType="DECIMAL" property="collectPrincipal" />
+    <result column="collect_interest" jdbcType="DECIMAL" property="collectInterest" />
+    <result column="actual_collect_amount" jdbcType="DECIMAL" property="actualCollectAmount" />
+    <result column="actual_collect_principal" jdbcType="DECIMAL" property="actualCollectPrincipal" />
+    <result column="actual_collect_interest" jdbcType="DECIMAL" property="actualCollectInterest" />
+    <result column="actual_uncollect_amount" jdbcType="DECIMAL" property="actualUncollectAmount" />
+    <result column="actual_uncollect_principal" jdbcType="DECIMAL" property="actualUncollectPrincipal" />
+    <result column="actual_uncollect_interest" jdbcType="DECIMAL" property="actualUncollectInterest" />
+    <result column="additional_rate_amount" jdbcType="DECIMAL" property="additionalRateAmount" />
+    <result column="addip" jdbcType="VARCHAR" property="addip" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="special_marks" jdbcType="VARCHAR" property="specialMarks" />
+    <result column="auto_id" jdbcType="INTEGER" property="autoId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, item_id, user_id, invest_type, invest_current, invest_order, invest_status, invest_amount, 
+    invest_deal_amount, collect_amount, collect_principal, collect_interest, actual_collect_amount, 
+    actual_collect_principal, actual_collect_interest, actual_uncollect_amount, actual_uncollect_principal, 
+    actual_uncollect_interest, additional_rate_amount, addip, addtime, updatetime, special_marks, 
+    auto_id
+  </sql>
+  <insert id="insert" parameterType="com.shsxt.xm.po.BusItemInvest">
+    insert into bus_item_invest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="itemId != null">
+        item_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="investType != null">
+        invest_type,
+      </if>
+      <if test="investCurrent != null">
+        invest_current,
+      </if>
+      <if test="investOrder != null">
+        invest_order,
+      </if>
+      <if test="investStatus != null">
+        invest_status,
+      </if>
+      <if test="investAmount != null">
+        invest_amount,
+      </if>
+      <if test="investDealAmount != null">
+        invest_deal_amount,
+      </if>
+      <if test="collectAmount != null">
+        collect_amount,
+      </if>
+      <if test="collectPrincipal != null">
+        collect_principal,
+      </if>
+      <if test="collectInterest != null">
+        collect_interest,
+      </if>
+      <if test="actualCollectAmount != null">
+        actual_collect_amount,
+      </if>
+      <if test="actualCollectPrincipal != null">
+        actual_collect_principal,
+      </if>
+      <if test="actualCollectInterest != null">
+        actual_collect_interest,
+      </if>
+      <if test="actualUncollectAmount != null">
+        actual_uncollect_amount,
+      </if>
+      <if test="actualUncollectPrincipal != null">
+        actual_uncollect_principal,
+      </if>
+      <if test="actualUncollectInterest != null">
+        actual_uncollect_interest,
+      </if>
+      <if test="additionalRateAmount != null">
+        additional_rate_amount,
+      </if>
+      <if test="addip != null">
+        addip,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="specialMarks != null">
+        special_marks,
+      </if>
+      <if test="autoId != null">
+        auto_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="itemId != null">
+        #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="investType != null">
+        #{investType,jdbcType=INTEGER},
+      </if>
+      <if test="investCurrent != null">
+        #{investCurrent,jdbcType=INTEGER},
+      </if>
+      <if test="investOrder != null">
+        #{investOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="investStatus != null">
+        #{investStatus,jdbcType=INTEGER},
+      </if>
+      <if test="investAmount != null">
+        #{investAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="investDealAmount != null">
+        #{investDealAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="collectAmount != null">
+        #{collectAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="collectPrincipal != null">
+        #{collectPrincipal,jdbcType=DECIMAL},
+      </if>
+      <if test="collectInterest != null">
+        #{collectInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="actualCollectAmount != null">
+        #{actualCollectAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="actualCollectPrincipal != null">
+        #{actualCollectPrincipal,jdbcType=DECIMAL},
+      </if>
+      <if test="actualCollectInterest != null">
+        #{actualCollectInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="actualUncollectAmount != null">
+        #{actualUncollectAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="actualUncollectPrincipal != null">
+        #{actualUncollectPrincipal,jdbcType=DECIMAL},
+      </if>
+      <if test="actualUncollectInterest != null">
+        #{actualUncollectInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="additionalRateAmount != null">
+        #{additionalRateAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="addip != null">
+        #{addip,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="specialMarks != null">
+        #{specialMarks,jdbcType=VARCHAR},
+      </if>
+      <if test="autoId != null">
+        #{autoId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bus_item_invest
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryBusItemsByParams" parameterType="busItemInvestQuery" resultType="busItemInvestDto">
+       SELECT
+            bii.invest_amount as investAmount,
+            bii.addtime,
+            u.mobile
+        FROM
+            bus_item_invest bii
+        LEFT JOIN bas_user u ON bii.user_id = u.id
+        WHERE
+            bii.item_id = #{itemId}
+   </select>
+
+
+
+  <select id="queryItemInvestsFiveMonthByUserId" resultType="BusItemInvestDto">
+    SELECT
+          temp.MONTH as month,
+          IFNULL(invest.investAmount, 0) AS investAmount
+      FROM
+          (
+              SELECT
+                  DATE_FORMAT(CURDATE(), '%Y-%m') AS MONTH
+              UNION
+                  SELECT
+                      DATE_FORMAT(
+                          (CURDATE() - INTERVAL 1 MONTH),
+                          '%Y-%m'
+                      ) AS MONTH
+                  UNION
+                      SELECT
+                          DATE_FORMAT(
+                              (CURDATE() - INTERVAL 2 MONTH),
+                              '%Y-%m'
+                          ) AS MONTH
+                      UNION
+                          SELECT
+                              DATE_FORMAT(
+                                  (CURDATE() - INTERVAL 3 MONTH),
+                                  '%Y-%m'
+                              ) AS MONTH
+                          UNION
+                              SELECT
+                                  DATE_FORMAT(
+                                      (CURDATE() - INTERVAL 4 MONTH),
+                                      '%Y-%m'
+                                  ) AS MONTH
+          ) temp
+      LEFT JOIN (
+          SELECT
+              SUM(invest_amount) AS investAmount,
+              DATE_FORMAT(addtime, '%Y-%m') AS MONTH
+          FROM
+              bus_item_invest
+          WHERE
+              user_id = #{userId}
+          GROUP BY
+              DATE_FORMAT(addtime, '%Y-%m')
+      ) invest ON temp.`month` = invest. MONTH
+      order by temp.MONTH
+
+
+  </select>
+</mapper>
